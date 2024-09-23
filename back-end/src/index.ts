@@ -17,7 +17,6 @@ app.use("/api/v1/auth", authRoute);
 app.get("/", (req: Request, res: Response) => {
   res.send("Welcome to E-Commerce API Server");
 });
-
 connectDB(MONGO_URI);
 
 //server asaah

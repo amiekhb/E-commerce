@@ -25,10 +25,14 @@ const Header = () => {
         <CiHeart className="w-[30px] h-[30px]" />
         <MdOutlineLocalGroceryStore className="w-[30px] h-[30px]" />
         <Button variant={"outline"} className="rounded-full">
-          Бүртгүүлэх
+          <Link className="" href={"/signup"}>
+            Бүртгүүлэх
+          </Link>
         </Button>
         <Button variant={"outline"} className="bg-blue-700 rounded-full">
-          Нэвтрэх
+          <Link className="" href={"/login"}>
+            Нэвтрэх
+          </Link>
         </Button>
       </div>
     </div>
