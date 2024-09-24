@@ -43,7 +43,7 @@ export const login = async (req: Request, res: Response) => {
       if (!isCheck) {
         res.status(400).json({ message: "Nuuts ug buruu" });
       } else {
-        const token = jwt.sign({ id: user.id }, "JWT_TOKEN_PASS@123", {
+        const token = jwt.sign({ id: user._id }, "JWT_TOKEN_PASS@123", {
           expiresIn: "1h",
         });
         res.status(200).json({ message: "Amjilttai nevterlee", token });

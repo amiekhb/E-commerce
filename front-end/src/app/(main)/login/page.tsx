@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import React, { useState } from "react";
 import axios from "axios";
-
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 
@@ -34,6 +33,7 @@ const Login = () => {
 
         router.push("/");
       }
+      console.log("medeelel", userData);
     } catch (error) {
       console.error("There was an error signing in:", error);
       toast.error("Failed to sign in. Please try again.");
@@ -68,8 +68,9 @@ const Login = () => {
             Нэвтрэх
           </Button>
           <div className="flex gap-3">
-            <p className="border-b text-gray-500">Нууц үг мартсан</p>
-            <Link className="text-blue-600" href={"/password"}></Link>
+            <p className="border-b text-gray-500">
+              <Link href={"/password"}>Нууц үг мартсан</Link>
+            </p>
           </div>
           <Button className="w-1/4 flex items-center justify-center  text-blue-700 bg-white border rounded-full">
             <Link className="text-blue-600" href={"/signup"}>

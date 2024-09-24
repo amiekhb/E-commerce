@@ -10,9 +10,9 @@ import Image from "next/image";
 const Header = () => {
   return (
     <div className="bg-black p-5 grid grid-cols-3 w-full justify-between items-center ">
-      <div className="flex items-center justify-start">
+      <div className="flex items-center justify-start gap-5">
         <img src="./images/logo.png" alt="logo" />
-        <p>Ангилал</p>
+        <p className="text-gray-400">Ангилал</p>
       </div>
       <div className="flex items-center gap-3  text-center justify-center">
         <CiSearch className="text-gray-100" />

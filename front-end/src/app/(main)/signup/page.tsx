@@ -19,10 +19,10 @@ const SignUp = () => {
   });
   const signUp = async () => {
     const { firstname, lastname, email, password } = userData;
-    if (password !== password) {
-      toast.error("Нууц үг хоорондоо тохирохгүй байна.");
-      return;
-    }
+    // if (password !== password) {
+    //   toast.error("Нууц үг хоорондоо тохирохгүй байна.");
+    //   return;
+    // }
     try {
       const response = await axios.post(
         "http://localhost:8000/api/v1/auth/signup",
@@ -77,14 +77,14 @@ const SignUp = () => {
             setUserData({ ...userData, password: e.target.value })
           }
         ></Input>
-        <Input
+        {/* <Input
           className=" w-1/4 p-2 flex items-center justify-center rounded-full"
           placeholder="Нууц үг давтах"
-          value={userData.repassword}
+          value={userData.password}
           onChange={(e) =>
-            setUserData({ ...userData, repassword: e.target.value })
+            setUserData({ ...userData, password: e.target.value })
           }
-        ></Input>
+        ></Input> */}
       </div>
       <ul className="text-gray-600 text-xs flex flex-col gap-3 text-start items-center">
         <li>Том үсэг орсон байх</li>
