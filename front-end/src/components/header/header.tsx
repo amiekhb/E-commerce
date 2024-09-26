@@ -24,7 +24,10 @@ const Header = () => {
       <div className="text-gray-100 flex gap-3  items-center justify-end ">
         <CiHeart className="w-[30px] h-[30px]" />
         <MdOutlineLocalGroceryStore className="w-[30px] h-[30px]" />
-        <Button variant={"outline"} className="rounded-full">
+        <Button
+          variant={"outline"}
+          className="rounded-full bg-black border-blue-700"
+        >
           <Link className="" href={"/signup"}>
             Бүртгүүлэх
           </Link>

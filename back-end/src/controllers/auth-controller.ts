@@ -45,11 +45,15 @@ export const login = async (req: Request, res: Response) => {
       if (!isCheck) {
         res.status(400).json({ message: "Nuuts ug buruu" });
       } else {
-        const token = generateToken({user._id.toString()});
+        const token = generateToken({ id: user._id });
         res.status(200).json({ message: "Amjilttai nevterlee", token });
       }
     }
   } catch (error) {
     res.status(404).json({ message: "Error" });
   }
+};
+
+export const currentUser = async (req: Request, res: Response) => {
+  // const { user } = req;
 };
