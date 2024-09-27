@@ -1,18 +1,18 @@
-import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 import { decodeToken } from "../utils/jwt";
-interface IMyRequest extends Request {
-  user: string | object;
-}
+// interface IMyRequest extends Request {
+//   user: string | object;
+// }
 
 declare global {
-  namespace Express {}
+  namespace Express {
+    interface Request {
+      user: any;
+    }
+  }
 }
 
-export const auth = (req: IMyRequest, res: Response, next: NextFunction) => {
-  //   const token: string | undefined | string[] =
-  //     req.headers.authorization || req.headers.Authorization;
-  // console.log("nevtersen hereglegch shalgah"
+export const auth = (req: Request, res: Response, next: NextFunction) => {
   if (!req.headers.authorization) {
     return res.status(401).json({ message: "nevter" });
   }
