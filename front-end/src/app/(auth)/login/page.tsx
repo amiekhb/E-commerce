@@ -69,7 +69,7 @@ const Login = () => {
           </Button>
           <div className="flex gap-3">
             <p className="border-b text-gray-500">
-              <Link href={"/password"}>Нууц үг мартсан</Link>
+              <Link href={"/forgetpass/email"}>Нууц үг мартсан</Link>
             </p>
           </div>
           <Button className="w-1/4 flex items-center justify-center  text-blue-700 bg-white border rounded-full">

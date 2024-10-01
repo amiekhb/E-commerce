@@ -37,12 +37,13 @@ const Email = () => {
     } catch (error) {
       toast.error("Имэйл илгээхэд алдаа гарлаа");
     }
-    // router.push("/forgetpass/otp");
+    router.push("/forgetpass/otp");
   };
+
   const handleConfirmOtp = async (value) => {
     setOtpValue(value);
     if (value.length === 4) {
-      // router.push("/forgetpass/newpass");
+      router.push("/forgetpass/newpass");
       try {
         const res = await axios.post(
           "http://localhost:8000/api/v1/auth/verify-otp",
@@ -73,6 +74,7 @@ const Email = () => {
       return () => clearInterval(countdown);
     }
   }, [countDown]);
+
   return (
     <div className="  w-full h-full flex items-start justify-center bg-gray-100">
       <div className="flex flex-col items-center gap-5 w-full  h-full justify-center">
@@ -85,20 +87,17 @@ const Email = () => {
               placeholder="Имэйл хаяг оруулах"
               onChange={handleEmail}
             ></Input>
-            <Button className="w-1/5 flex items-center justify-center  bg-blue-700 border rounded-full">
-              <Link
-                className="text-white"
-                href={"/loading"}
-                onClick={handleSendOtp}
-              >
-                Илгээх
-              </Link>
+            <Button
+              className="w-1/5 flex items-center justify-center  bg-blue-700 border rounded-full"
+              onClick={handleSendOtp}
+            >
+              Илгээх
             </Button>
           </>
         )}
         {step === 2 && (
           <div className="h-[calc(100vh-350px)] flex flex-col items-center mt-24">
-            <EmailIcon />
+            <img src="/images/mail.png" alt="" />
             <h1 className="mt-7 text-2xl font-bold">Баталгаажуулах</h1>
             <p className="mt-2 mb-6 text-text-primary">
               {`“${email}” хаягт илгээсэн баталгаажуулах кодыг оруулна уу`}

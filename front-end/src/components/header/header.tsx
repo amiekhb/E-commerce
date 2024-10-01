@@ -5,7 +5,6 @@ import { MdOutlineLocalGroceryStore } from "react-icons/md";
 import { Button } from "../ui/button";
 import { CiSearch } from "react-icons/ci";
 import Link from "next/link";
-import Image from "next/image";
 
 const Header = () => {
   return (

@@ -16,7 +16,7 @@ const MONGO_URI = process.env.MONGO_URI || "";
 
 //express app object uusgeh
 const app = express();
-const resend = new Resend(process.env.RESEND_API_KEY);
+// const resend = new Resend(process.env.RESEND_API_KEY);
 
 //middlewares //callback function
 app.use(express.json());
@@ -25,10 +25,10 @@ app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/categories", categoryRoute);
 
 app.get("/", async (req: Request, res: Response) => {
-  const rndOtp = Math.floor(Math.random() * 10000)
-    .toString()
-    .padStart(4, "0");
-  sendEmail("bmisheel1104@gmail.com", rndOtp);
+  // const rndOtp = Math.floor(Math.random() * 10000)
+  //   .toString()
+  //   .padStart(4, "0");
+  // sendEmail("amin-erdene@human.edu.mn", rndOtp);
 
   res.send("Welcome to E-Commerce API Server");
 });

@@ -19,7 +19,7 @@ const SignUp = () => {
   });
   const signUp = async () => {
     const { firstname, lastname, email, password } = userData;
-    // if (password !== password) {
+    // if (password !== repassword) {
     //   toast.error("Нууц үг хоорондоо тохирохгүй байна.");
     //   return;
     // }
@@ -82,7 +82,7 @@ const SignUp = () => {
           placeholder="Нууц үг давтах"
           value={userData.password}
           onChange={(e) =>
-            setUserData({ ...userData, password: e.target.value })
+            setUserData({ ...userData, repassword: e.target.value })
           }
         ></Input> */}
       </div>
