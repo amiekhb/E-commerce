@@ -1,18 +1,33 @@
-import { useState } from "react";
-import { createContext } from "vm";
+"use client";
+import React, { useContext, useState, createContext } from "react";
 
 interface IUser {
   firstname: string;
   email: string;
 }
 
-interface IContext{
-    user:IUser|null;
-    setUser:React.Dispatch<React.SetStateActionFunction;
+interface IContext {
+  user: IUser | null;
+  setUser: React.Dispatch<React.SetStateAction<IUser | null>>;
 }
 
-const UseContext = createContext();
+export const UserContext = createContext<IContext>({
+  user: null,
+  setUser: () => {},
+});
 
 const UserProvider = ({ children }: { children: React.ReactNode }) => {
-  const [user, setUser] = useState<IUser></IUser>|(null);
+  const [user, setUser] = useState<IUser | null>(null);
+
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      {children}
+    </UserContext.Provider>
+  );
 };
+
+export const useUser = () => {
+  return useContext(UserContext);
+};
+
+export default UserProvider;
