@@ -7,6 +7,8 @@ dotenv.config();
 
 import authRoute from "./routes/auth-route";
 import categoryRoute from "./routes/category-route";
+import productRoute from "./routes/product-route";
+import userRoute from "./routes/user-route";
 import { connectDB } from "./config/db";
 import { generateHTMLTemplate } from "./utils/generateHTMLTemplate";
 import { sendEmail } from "./utils/send-email";
@@ -20,10 +22,13 @@ const app = express();
 
 //middlewares //callback function
 app.use(express.json());
+const resend = new Resend(process.env.RESEND_API_KEYS);
 app.use(cors());
 app.use("/api/v1/auth", authRoute);
-app.use("/api/v1/categories", categoryRoute);
-
+app.use("/api/v1", categoryRoute);
+app.use("/api/v1", categoryRoute);
+app.use("/api/v1", productRoute);
+app.use("/api/v1", userRoute);
 app.get("/", async (req: Request, res: Response) => {
   // const rndOtp = Math.floor(Math.random() * 10000)
   //   .toString()

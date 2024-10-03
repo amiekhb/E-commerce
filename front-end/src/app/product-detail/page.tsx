@@ -31,7 +31,7 @@ const ProductDetail = () => {
         <div>
           {" "}
           <img
-            className="w-[350px] h-[450px]  bg-cover rounded-xl"
+            className="w-[350px] h-[450px]  bg-contain rounded-xl"
             src="./images/image1.png"
             alt=""
           />
@@ -89,7 +89,40 @@ const ProductDetail = () => {
           <p className="text-2xl font-semibold">120’000₮</p>
           <Button className="rounded-full  bg-blue-700">Сагсанд нэмэх</Button>
           <div className="flex gap-5">
-            <p>Үнэлгээ</p>
+            <div className="flex gap-5">
+              <p>Үнэлгээ</p>
+              <p className="text-blue-500 border-b border-blue-500 text-sm">
+                бүгдийг харах
+              </p>
+            </div>
+            <div className="rating">
+              <input
+                type="radio"
+                name="rating-2"
+                className="mask mask-star-2 bg-yellow-300"
+              />
+              <input
+                type="radio"
+                name="rating-2"
+                className="mask mask-star-2 bg-yellow-300"
+                defaultChecked
+              />
+              <input
+                type="radio"
+                name="rating-2"
+                className="mask mask-star-2 bg-yellow-300"
+              />
+              <input
+                type="radio"
+                name="rating-2"
+                className="mask mask-star-2 bg-yellow-300"
+              />
+              <input
+                type="radio"
+                name="rating-2"
+                className="mask mask-star-2 bg-yellow-300"
+              />
+            </div>
           </div>
         </div>
       </div>

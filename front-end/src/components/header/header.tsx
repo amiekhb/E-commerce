@@ -11,7 +11,9 @@ const Header = () => {
     <div className="bg-black p-5 grid grid-cols-3 w-full justify-between items-center ">
       <div className="flex items-center justify-start gap-5">
         <img src="./images/logo.png" alt="logo" />
-        <p className="text-gray-400">Ангилал</p>
+        <Link className="text-gray-400" href={"/category"}>
+          Ангилал
+        </Link>
       </div>
       <div className="flex items-center gap-3  text-center justify-center">
         <CiSearch className="text-gray-100" />
@@ -31,7 +33,7 @@ const Header = () => {
             Бүртгүүлэх
           </Link>
         </Button>
-        <Button variant={"outline"} className="bg-blue-700 rounded-full">
+        <Button className="bg-blue-700 rounded-full">
           <Link className="" href={"/login"}>
             Нэвтрэх
           </Link>

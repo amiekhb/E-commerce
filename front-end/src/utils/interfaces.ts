@@ -10,3 +10,8 @@ export interface IProduct {
   discount: number;
   category: Object;
 }
+
+export interface ICategory {
+  name: string;
+  description: string;
+}
