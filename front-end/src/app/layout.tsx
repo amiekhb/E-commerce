@@ -31,7 +31,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen`}
       >
         <Header />
-        <div className="">{children}</div>
+        <div className="w-screen flex flex-col items-center">{children}</div>
         <Footer />
       </body>
     </html>

@@ -37,11 +37,11 @@ const ProductProvider = ({ children }: { children: React.ReactNode }) => {
     getAllProducts();
   }, []);
 
-  return (
-    <ProductContext.Provider value={{ product, setProduct }}>
-      {children}
-    </ProductContext.Provider>
-  );
+  // return (
+  //   <ProductContext.Provider value={{ product, setProduct }}>
+  //     {children}
+  //   </ProductContext.Provider>
+  // );
 };
 
 export const useUser = () => {
