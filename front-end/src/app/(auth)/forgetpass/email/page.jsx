@@ -76,8 +76,8 @@ const Email = () => {
   }, [countDown]);
 
   return (
-    <div className="  w-full h-full flex items-start justify-center bg-gray-100">
-      <div className="flex flex-col items-center gap-5 w-full  h-full justify-center">
+    <div className="  w-full h-full flex items-start justify-center bg-gray-100 ">
+      <div className="flex flex-col items-center gap-5 w-full  h-full justify-center my-60">
         {step === 1 && (
           <>
             <h1 className="text-3xl font-semibold">Нууц үг сэргээх</h1>
