@@ -1,4 +1,6 @@
 import Basket from "@/components/purchase/basket";
+import DeliveryInfo from "@/components/purchase/deliveryInfo";
+import { Successful } from "@/components/purchase/successful";
 import React from "react";
 
 const Purchase = () => {
@@ -9,7 +11,9 @@ const Purchase = () => {
         <li className="step ">2</li>
         <li className="step">3</li>
       </ul>
-      <Basket />
+      {/* <Basket /> */}
+      {/* <DeliveryInfo /> */}
+      <Successful />
     </div>
   );
 };
