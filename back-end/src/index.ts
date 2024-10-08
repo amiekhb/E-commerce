@@ -9,6 +9,7 @@ import authRoute from "./routes/auth-route";
 import categoryRoute from "./routes/category-route";
 import productRoute from "./routes/product-route";
 import userRoute from "./routes/user-route";
+import cartRoute from "./routes/cart-route";
 import { connectDB } from "./config/db";
 import { generateHTMLTemplate } from "./utils/generateHTMLTemplate";
 import { sendEmail } from "./utils/send-email";
@@ -29,6 +30,8 @@ app.use("/api/v1", categoryRoute);
 app.use("/api/v1", categoryRoute);
 app.use("/api/v1", productRoute);
 app.use("/api/v1", userRoute);
+app.use("/api/v1/cart", cartRoute);
+
 app.get("/", async (req: Request, res: Response) => {
   // const rndOtp = Math.floor(Math.random() * 10000)
   //   .toString()

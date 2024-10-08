@@ -5,15 +5,19 @@ import React from "react";
 
 const Purchase = () => {
   return (
-    <div className="bg-gray-100 flex flex-col justify-center w-screen h-[800px] ">
-      <ul className="steps ">
-        <li className="step step-primary">1</li>
-        <li className="step ">2</li>
-        <li className="step">3</li>
-      </ul>
-      {/* <Basket /> */}
-      {/* <DeliveryInfo /> */}
-      <Successful />
+    <div className="flex flex-col bg-gray-100 h-[800px] ">
+      <div className=" flex flex-col justify-center w-screen  p-16">
+        <ul className="steps ">
+          <li className="step step-primary"></li>
+          <li className="step "></li>
+          <li className="step"></li>
+        </ul>
+      </div>
+      <div className=" w-full flex justify-center p-20">
+        <Basket />
+        {/* <DeliveryInfo /> */}
+        {/* <Successful /> */}
+      </div>
     </div>
   );
 };

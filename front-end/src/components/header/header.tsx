@@ -23,7 +23,10 @@ const Header = () => {
         />
       </div>
       <div className="text-gray-100 flex gap-3  items-center justify-end ">
-        <CiHeart className="w-[30px] h-[30px]" />
+        <CiHeart
+          className="w-[30px] h-[30px]"
+          // onClick={}
+        />
         <MdOutlineLocalGroceryStore className="w-[30px] h-[30px]" />
         <Button
           variant={"outline"}

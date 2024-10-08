@@ -72,7 +72,7 @@ const Basket = () => {
             </button>
           </div>
         </div>
-        <Button className="bg-blue-700 rounded-full place-self-end">
+        <Button className="bg-blue-700 rounded-full place-self-endr">
           Худалдан авах
         </Button>
       </div>
@@ -81,3 +81,5 @@ const Basket = () => {
 };
 
 export default Basket;
+
+export const SideBasket = () => {};

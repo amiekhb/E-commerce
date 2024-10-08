@@ -3,6 +3,7 @@ import Image from "next/image";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { IProduct } from "@/utils/interfaces";
 import { Divide } from "lucide-react";
+import ProductDetail from "@/app/product-detail/page";
 const ProductCard = ({ product }: { product: IProduct }) => {
   return (
     <div className="">
@@ -30,6 +31,7 @@ export const BigProductCard = ({ product }: { product: IProduct }) => {
   return (
     <div className="col-span-2 row-span-2">
       <div
+        onClick={ProductDetail}
         className=" bg-contain h-[710px] w-[610px] rounded-xl relative"
         style={{
           backgroundImage: `url(${product.images})`,
