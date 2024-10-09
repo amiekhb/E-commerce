@@ -1,51 +1,47 @@
 "use client";
-import { apiUrl } from "@/utils/util";
-import axios from "axios";
-import React, { useContext, useState, createContext, useEffect } from "react";
 
-interface IProduct {
-  _id: string;
-  name: string;
-  description: string;
-  price: number;
-  size: string;
-  images: [string];
-  isNew: boolean;
-  quantity: number;
-  discount: number;
-  category: Object;
-}
+import React, {
+  createContext,
+  useEffect,
+  useState,
+  ReactNode,
+  useContext,
+} from "react";
+import axios from "axios";
+import { IProduct } from "@/utils/interfaces";
+import { apiUrl } from "@/utils/util";
 
 interface IContext {
-  product: IProduct | null;
-  setProduct: React.Dispatch<React.SetStateAction<IProduct | null>>;
+  products: IProduct[];
+  loading: boolean;
+  error: string | null;
 }
 
-export const ProductContext = createContext<IContext>({
-  product: null,
-  setProduct: () => {},
-});
+export const ProductContext = createContext<IContext | undefined>(undefined);
 
-const ProductProvider = ({ children }: { children: React.ReactNode }) => {
-  const [product, setProduct] = useState<IProduct[]>([]);
+export const ProductProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  const [products, setProducts] = useState<IProduct[]>([]);
+
   const getAllProducts = async () => {
     const response = await axios.get(`${apiUrl}/api/v1/product`);
-    setProduct(response.data.products);
+    setProducts(response.data.products);
   };
 
   useEffect(() => {
     getAllProducts();
   }, []);
 
-  // return (
-  //   <ProductContext.Provider value={{ product, setProduct }}>
-  //     {children}
-  //   </ProductContext.Provider>
-  // );
+  return (
+    <ProductContext.Provider value={{ products }}>
+      {children}
+    </ProductContext.Provider>
+  );
 };
 
-export const useUser = () => {
+export const useProducts = () => {
   return useContext(ProductContext);
 };
-
-export default ProductProvider;

@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { IProduct } from "@/utils/interfaces";
-import { Divide } from "lucide-react";
+import { IoMdHeart } from "react-icons/io";
 import ProductDetail from "@/app/product-detail/page";
 const ProductCard = ({ product }: { product: IProduct }) => {
   return (
@@ -48,3 +48,7 @@ export const BigProductCard = ({ product }: { product: IProduct }) => {
     </div>
   );
 };
+
+{
+  /* <IoMdHeart /> */
+}

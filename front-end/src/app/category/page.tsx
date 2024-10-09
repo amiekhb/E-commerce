@@ -5,9 +5,11 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { apiUrl } from "@/utils/util";
 import axios from "axios";
 import { ICategory } from "@/utils/interfaces";
-import { Divide } from "lucide-react";
+import ProductCard, { BigProductCard } from "@/components/productCard";
+import { useProducts } from "@/provider/product-provider";
 
 const Category = () => {
+  const { products } = useProducts();
   const [categoryList, setCategoryList] = useState<ICategory[]>([]);
   const getCategory = async () => {
     const response = await axios.get(`${apiUrl}/api/v1/category`);
@@ -17,6 +19,8 @@ const Category = () => {
   useEffect(() => {
     getCategory();
   }, []);
+
+  console.log("products", products);
   return (
     <div className="flex p-5 m-20">
       <div className="flex flex-col gap-5">
@@ -59,9 +63,21 @@ const Category = () => {
           </span>
         </div>
       </div>
-      <div className="grid grid-cols-3"></div>
+
+      <div className="grid grid-cols-3 gap-5 m-10">
+        {products.map((p, i) => {
+          return <ProductCard key={p._id} product={p} />;
+        })}
+      </div>
     </div>
   );
 };
 
 export default Category;
+
+// const App = () => (
+//   <ProductProvider>
+//     <Category />
+//   </ProductProvider>
+// );
+// export default App;
