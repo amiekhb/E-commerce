@@ -15,6 +15,7 @@ interface IContext {
   products: IProduct[];
   loading: boolean;
   error: string | null;
+  getProduct: (id: string) => Promise<void>;
 }
 
 export const ProductContext = createContext<IContext | undefined>(undefined);
@@ -25,10 +26,19 @@ export const ProductProvider = ({
   children: React.ReactNode;
 }) => {
   const [products, setProducts] = useState<IProduct[]>([]);
+  const [oneProduct, setOneProduct] = useState<IProduct[]>([]);
 
   const getAllProducts = async () => {
     const response = await axios.get(`${apiUrl}/api/v1/product`);
     setProducts(response.data.products);
+  };
+  const getProduct = async (id: string) => {
+    try {
+      const response = await axios.get(`${apiUrl}/api/v1/${id}`);
+      setOneProduct(response.data.product);
+    } catch (err) {
+      console.log("Failed to fetch product");
+    }
   };
 
   useEffect(() => {
@@ -36,7 +46,7 @@ export const ProductProvider = ({
   }, []);
 
   return (
-    <ProductContext.Provider value={{ products }}>
+    <ProductContext.Provider value={{ products, oneProduct, getProduct }}>
       {children}
     </ProductContext.Provider>
   );

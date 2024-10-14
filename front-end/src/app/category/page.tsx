@@ -7,9 +7,11 @@ import axios from "axios";
 import { ICategory } from "@/utils/interfaces";
 import ProductCard, { BigProductCard } from "@/components/productCard";
 import { useProducts } from "@/provider/product-provider";
+import { useCategories } from "@/provider/category-provider";
 
 const Category = () => {
   const { products } = useProducts();
+  // const { categoryList, getCategory } = useCategories();
   const [categoryList, setCategoryList] = useState<ICategory[]>([]);
   const getCategory = async () => {
     const response = await axios.get(`${apiUrl}/api/v1/category`);
@@ -74,10 +76,3 @@ const Category = () => {
 };
 
 export default Category;
-
-// const App = () => (
-//   <ProductProvider>
-//     <Category />
-//   </ProductProvider>
-// );
-// export default App;
