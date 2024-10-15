@@ -12,6 +12,7 @@ export const createCart = async (req: Request, res: Response) => {
         products: { product: productId, quantity },
         totalAmount,
       });
+      console.log(cart);
       return res.status(200).json({
         message: "created new cart",
         cart,
@@ -37,6 +38,25 @@ export const createCart = async (req: Request, res: Response) => {
     console.log(error);
     res.status(400).json({
       message: "failed to read carts",
+    });
+  }
+};
+
+export const getUserCart = async (req: Request, res: Response) => {
+  const { userId } = req.body;
+  try {
+    const carts = await Cart.findOne({ user: userId }).populate(
+      "products.product"
+    );
+    console.log(userId);
+    res.status(200).json({
+      message: "User cart is read successfully",
+      cart: carts,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(400).json({
+      message: "failed to get cart data",
     });
   }
 };

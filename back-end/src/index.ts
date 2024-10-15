@@ -27,7 +27,6 @@ const resend = new Resend(process.env.RESEND_API_KEYS);
 app.use(cors());
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1", categoryRoute);
-app.use("/api/v1", categoryRoute);
 app.use("/api/v1", productRoute);
 app.use("/api/v1", userRoute);
 app.use("/api/v1/cart", cartRoute);
@@ -36,7 +35,7 @@ app.get("/", async (req: Request, res: Response) => {
   // const rndOtp = Math.floor(Math.random() * 10000)
   //   .toString()
   //   .padStart(4, "0");
-  // sendEmail("amin-erdene@human.edu.mn", rndOtp);
+  // sendEmail("aminaaami0715@gmail.com", rndOtp);
 
   res.send("Welcome to E-Commerce API Server");
 });

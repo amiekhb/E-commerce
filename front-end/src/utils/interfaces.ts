@@ -15,3 +15,9 @@ export interface ICategory {
   name: string;
   description: string;
 }
+
+export interface ICart {
+  user: string;
+  products: [{ product: string; quantity: Number }];
+  totalAmount: Number;
+}

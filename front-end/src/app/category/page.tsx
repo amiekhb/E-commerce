@@ -11,12 +11,7 @@ import { useCategories } from "@/provider/category-provider";
 
 const Category = () => {
   const { products } = useProducts();
-  // const { categoryList, getCategory } = useCategories();
-  const [categoryList, setCategoryList] = useState<ICategory[]>([]);
-  const getCategory = async () => {
-    const response = await axios.get(`${apiUrl}/api/v1/category`);
-    setCategoryList(response.data.category);
-  };
+  const { categoryList, getCategory } = useCategories();
 
   useEffect(() => {
     getCategory();
@@ -38,31 +33,11 @@ const Category = () => {
         </div>
         <div className="flex flex-col gap-2">
           <h1 className="font-semibold">Хэмжээ</h1>
-          <span className="flex gap-2 items-center">
-            <Checkbox />
-            Free
-          </span>
-          <span className="flex gap-2 items-center">
-            <Checkbox />S
-          </span>
-          <span className="flex gap-2 items-center">
-            <Checkbox />M
-          </span>
-          <span className="flex gap-2 items-center">
-            <Checkbox />L
-          </span>
-          <span className="flex gap-2 items-center">
-            <Checkbox />
-            XL
-          </span>
-          <span className="flex gap-2 items-center">
-            <Checkbox />
-            2XL
-          </span>
-          <span className="flex gap-2 items-center">
-            <Checkbox />
-            3XL
-          </span>
+          {["Free", "S", "M", "L", "XL", "2XL", "3XL"].map((size) => (
+            <span key={size} className="flex gap-2 items-center">
+              <Checkbox /> {size}
+            </span>
+          ))}
         </div>
       </div>
 

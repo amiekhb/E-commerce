@@ -22,18 +22,19 @@ const ProductDetail = () => {
   const handleChange = () => {
     router.push("/purchase");
   };
+  
   return (
     <div className="flex flex-col gap-5 p-8 bg-white">
       <div className="flex gap-5 items-center">
         <div className="flex flex-col gap-5">
-          {oneProduct.images.map((image, index) => (
+          {/* {oneProduct.images.map((image, i) => (
             <img
-              key={index}
+              key={i}
               className="w-[50px] h-[50px] rounded-xl"
               src={image}
-              alt={`Image ${index + 1}`}
+              alt={`Image ${i + 1}`}
             />
-          ))}
+          ))} */}
         </div>
         <div
           className="w-[422px] h-[521px]   rounded-xl"

@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
 import { ProductProvider } from "@/provider/product-provider";
+import { CategoryProvider } from "@/provider/category-provider";
+import { CartProvider } from "@/provider/cart-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,11 +34,15 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen`}
       >
         <ProductProvider>
-          <Header />
-          <div className="w-screen flex flex-col items-center bg-white">
-            {children}
-          </div>
-          <Footer />
+          <CategoryProvider>
+            <CartProvider>
+              <Header />
+              <div className="w-screen flex flex-col items-center bg-white">
+                {children}
+              </div>
+              <Footer />
+            </CartProvider>
+          </CategoryProvider>
         </ProductProvider>
       </body>
     </html>

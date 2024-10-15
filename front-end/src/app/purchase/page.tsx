@@ -1,7 +1,9 @@
+"use client";
+
+import React from "react";
 import Basket from "@/components/purchase/basket";
 import DeliveryInfo from "@/components/purchase/deliveryInfo";
 import { Successful } from "@/components/purchase/successful";
-import React from "react";
 
 const Purchase = () => {
   return (

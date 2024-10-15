@@ -2,7 +2,9 @@ import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { Button } from "../ui/button";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { useCart } from "@/provider/cart-provider";
 const Basket = () => {
+  const { cartData, getCart } = useCart();
   return (
     <div className="w-1/2 flex flex-col items-center justify-center rounded-2xl">
       <div className="flex flex-col gap-5 items-start p-5 bg-white rounded-xl">
