@@ -8,11 +8,33 @@ import { useProducts } from "@/provider/product-provider";
 import { useParams, useRouter } from "next/navigation";
 import ProductCard, { BigProductCard } from "@/components/productCard";
 import { IProduct } from "@ /utils/interfaces";
+import { useUser } from "@/provider/user-provider";
+import { apiUrl } from "@/utils/util";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const ProductDetail = () => {
-  const router = useRouter();
+  const { user } = useUser();
   const { id } = useParams();
   const { oneProduct, getProduct, products } = useProducts();
+  const [productQuantity, setProductQuantity] = useState(0);
+
+  const addToCart = async () => {
+    try {
+      const response = await axios.post(`${apiUrl}/api/v1/cart/create-cart`, {
+        userId: user?._id,
+        productId: id,
+        quantity: productQuantity,
+      });
+
+      if (response.status === 200) {
+        toast.success("Successfully added to cart");
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      toast.error("Failed to add to cart");
+    }
+  };
 
   useEffect(() => {
     if (id) {
@@ -20,9 +42,9 @@ const ProductDetail = () => {
     }
   }, [id, getProduct]);
 
-  const handleChange = () => {
-    router.push("/purchase");
-  };
+  // const handleChange = () => {
+  //   router.push("/purchase");
+  // };
 
   return (
     <div className="flex flex-col gap-5 p-8 bg-white">
@@ -85,19 +107,21 @@ const ProductDetail = () => {
             <Button
               variant="outline"
               className="rounded-full h-[30px] w-[30px] border border-black"
-            >
-              +
-            </Button>
-            <p>1</p>
-            <Button
-              variant="outline"
-              className="rounded-full h-[30px] w-[30px] border border-black"
+              onClick={() => setProductQuantity(productQuantity - 1)}
             >
               -
             </Button>
+            <p>{productQuantity}</p>
+            <Button
+              variant="outline"
+              className="rounded-full h-[30px] w-[30px] border border-black"
+              onClick={() => setProductQuantity(productQuantity + 1)}
+            >
+              +
+            </Button>
           </div>
           <p className="text-2xl font-semibold">{oneProduct.price}₮</p>
-          <Button className="rounded-full  bg-blue-700" onClick={handleChange}>
+          <Button className="rounded-full  bg-blue-700" onClick={addToCart}>
             Сагсанд нэмэх
           </Button>
           <div className="flex gap-5">

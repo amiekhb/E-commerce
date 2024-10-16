@@ -31,7 +31,7 @@ const Login = () => {
         const { token } = response.data;
         localStorage.setItem("token", token);
 
-        router.push("/");
+        router.push("/home");
       }
       console.log("medeelel", userData);
     } catch (error) {
@@ -40,7 +40,7 @@ const Login = () => {
     }
   };
   return (
-    <div className=" p-16 m-16">
+    <div className=" p-16 m-16 w-full">
       <div className="flex flex-col gap-5 text-center p-16 m-16">
         <h1 className="text-3xl font-bold">Нэвтрэх</h1>
         <div className="flex flex-col gap-7 items-center">

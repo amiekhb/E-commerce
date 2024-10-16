@@ -10,6 +10,6 @@ const router = Router();
 
 router.route("/create-cart").post(createCart);
 router.route("/get-cart").get(auth, getUserCart);
-router.route("/update-cart").get(auth, updateCart);
+router.route("/update-cart").put(auth, updateCart);
 
 export default router;

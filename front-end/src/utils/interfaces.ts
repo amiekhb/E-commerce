@@ -21,3 +21,7 @@ export interface ICart {
   products: [{ product: string; quantity: Number }];
   totalAmount: Number;
 }
+export type Cart = {
+  product: IProduct;
+  quantity: number;
+}[];

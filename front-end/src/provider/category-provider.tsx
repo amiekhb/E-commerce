@@ -12,6 +12,7 @@ import { ICategory } from "@/utils/interfaces";
 import { apiUrl } from "@/utils/util";
 
 interface IContext {
+  categoryList: any;
   categories: ICategory[];
   loading: boolean;
   error: string | null;

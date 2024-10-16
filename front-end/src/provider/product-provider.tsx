@@ -34,7 +34,7 @@ export const ProductProvider = ({
   };
   const getProduct = async (id: string) => {
     try {
-      const response = await axios.get(`${apiUrl}/api/v1/${id}`);
+      const response = await axios.get(`${apiUrl}/api/v1/product/${id}`);
       setOneProduct(response.data.product);
     } catch (err) {
       console.log("Failed to fetch product");

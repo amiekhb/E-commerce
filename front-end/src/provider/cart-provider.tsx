@@ -37,7 +37,8 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   //       quantity: productQuantity,
   //     });
   //     if (response.status===200)
-  //   } catch (error){}
+  //   } catch (error){
+  // }
   // };
 
   useEffect(() => {

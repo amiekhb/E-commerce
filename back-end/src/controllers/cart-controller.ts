@@ -37,18 +37,16 @@ export const createCart = async (req: Request, res: Response) => {
   } catch (error) {
     console.log(error);
     res.status(400).json({
-      message: "failed to read carts",
+      message: "failed to create carts",
     });
   }
 };
 
 export const getUserCart = async (req: Request, res: Response) => {
-  const { userId } = req.body;
+  const { id } = req.user;
   try {
-    const cart = await Cart.findOne({ user: userId }).populate(
-      "products.product"
-    );
-    console.log(userId);
+    const cart = await Cart.findOne({ user: id }).populate("products.product");
+    console.log(id);
     res.status(200).json({
       message: "User cart is read successfully",
       cart: cart,
@@ -62,10 +60,10 @@ export const getUserCart = async (req: Request, res: Response) => {
 };
 
 export const updateCart = async (req: Request, res: Response) => {
-  const { userId } = req.user;
+  const { id } = req.user;
   const { productId, newQuantity } = req.body;
   try {
-    const cart = await Cart.findOne({ user: userId });
+    const cart = await Cart.findOne({ user: id });
     if (!cart) {
       return res.status(400).json({
         message: "not found user",
