@@ -12,7 +12,7 @@ import { IProduct } from "@/utils/interfaces";
 import { apiUrl } from "@/utils/util";
 
 interface IContext {
-  products: IProduct[];
+  products: IProduct[] | undefined;
   loading: boolean;
   error: string | null;
   getProduct: (id: string) => Promise<void>;

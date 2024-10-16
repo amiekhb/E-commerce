@@ -29,16 +29,16 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     setCartData(response.data.cart);
   };
 
-  const addToCart = async () => {
-    try {
-      const response = await axios.get(`${apiUrl}/api/v1/cart/create-cart`, {
-        userId: user?._id,
-        productId: id,
-        quantity: productQuantity,
-      });
-      if (response.status===200)
-    } catch (error){}
-  };
+  // const addToCart = async () => {
+  //   try {
+  //     const response = await axios.get(`${apiUrl}/api/v1/cart/create-cart`, {
+  //       userId: user?._id,
+  //       productId: id,
+  //       quantity: productQuantity,
+  //     });
+  //     if (response.status===200)
+  //   } catch (error){}
+  // };
 
   useEffect(() => {
     getCart();

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useProducts } from "@/provider/product-provider";
 import { useParams, useRouter } from "next/navigation";
 import ProductCard, { BigProductCard } from "@/components/productCard";
+import { IProduct } from "@ /utils/interfaces";
 
 const ProductDetail = () => {
   const router = useRouter();
@@ -22,7 +23,7 @@ const ProductDetail = () => {
   const handleChange = () => {
     router.push("/purchase");
   };
-  
+
   return (
     <div className="flex flex-col gap-5 p-8 bg-white">
       <div className="flex gap-5 items-center">
@@ -140,7 +141,7 @@ const ProductDetail = () => {
       <div>
         <h1 className="font-semibold text-3xl">Холбоотой бараа</h1>
         <div className="grid grid-cols-4 gap-5 m-10">
-          {products.map((p, i) => {
+          {products.map((p: IProduct, i: any) => {
             return <ProductCard key={p._id} product={p} />;
           })}
         </div>
