@@ -25,21 +25,12 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [cartData, setCartData] = useState<ICart[]>([]);
 
   const getCart = async () => {
-    const response = await axios.get(`${apiUrl}/api/v1/cart/get-cart`);
+    const userToken = localStorage.getItem("token");
+    const response = await axios.get(`${apiUrl}/api/v1/cart/get-cart`, {
+      headers: { Authorization: `Bearer ${userToken}` },
+    });
     setCartData(response.data.cart);
   };
-
-  // const addToCart = async () => {
-  //   try {
-  //     const response = await axios.get(`${apiUrl}/api/v1/cart/create-cart`, {
-  //       userId: user?._id,
-  //       productId: id,
-  //       quantity: productQuantity,
-  //     });
-  //     if (response.status===200)
-  //   } catch (error){
-  // }
-  // };
 
   useEffect(() => {
     getCart();

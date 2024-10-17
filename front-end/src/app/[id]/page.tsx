@@ -24,10 +24,12 @@ const ProductDetail = () => {
       const response = await axios.post(`${apiUrl}/api/v1/cart/create-cart`, {
         userId: user?._id,
         productId: id,
+        totalAmount: null,
         quantity: productQuantity,
       });
 
       if (response.status === 200) {
+        console.log("success");
         toast.success("Successfully added to cart");
       }
     } catch (error) {

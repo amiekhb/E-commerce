@@ -6,6 +6,7 @@ import Footer from "@/components/footer/footer";
 import { ProductProvider } from "@/provider/product-provider";
 import { CategoryProvider } from "@/provider/category-provider";
 import { CartProvider } from "@/provider/cart-provider";
+import UserProvider from "@/provider/user-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -36,11 +37,13 @@ export default function RootLayout({
         <ProductProvider>
           <CategoryProvider>
             <CartProvider>
-              <Header />
-              <div className="w-screen flex flex-col items-center bg-white">
-                {children}
-              </div>
-              <Footer />
+              <UserProvider>
+                <Header />
+                <div className="w-screen flex flex-col items-center bg-white">
+                  {children}
+                </div>
+                <Footer />
+              </UserProvider>
             </CartProvider>
           </CategoryProvider>
         </ProductProvider>

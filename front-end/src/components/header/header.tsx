@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Input } from "@/components/ui/input";
 import { CiHeart } from "react-icons/ci";
@@ -5,8 +7,14 @@ import { MdOutlineLocalGroceryStore } from "react-icons/md";
 import { Button } from "../ui/button";
 import { CiSearch } from "react-icons/ci";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
+  const router = useRouter();
+  const handleChange = () => {
+    console.log("onclick successful");
+    router.push("/purchase");
+  };
   return (
     <div className="bg-black p-5 grid grid-cols-3 w-full justify-between items-center ">
       <div className="flex items-center justify-start gap-5">
@@ -27,7 +35,12 @@ const Header = () => {
           className="w-[30px] h-[30px]"
           // onClick={}
         />
-        <MdOutlineLocalGroceryStore className="w-[30px] h-[30px]" />
+
+        <MdOutlineLocalGroceryStore
+          className="w-[30px] h-[30px]"
+          onClick={handleChange}
+        />
+
         <Button
           variant={"outline"}
           className="rounded-full bg-black border-blue-700"
