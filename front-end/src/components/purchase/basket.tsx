@@ -4,16 +4,22 @@ import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import BasketProductDetail from "../basket-product";
 
-const Basket = () => {
+const Basket = ({ items, setItems, nextStep }) => {
+  const totalItems = items.length;
   return (
     <div className="w-1/2 flex flex-col items-center justify-center rounded-2xl">
       <div className="flex flex-col gap-5 items-start p-5 bg-white rounded-xl">
         <div className="flex gap-3 text-xl font-semibold">
           <h1>1. </h1>
-          <h1>Сагс (4)</h1>
+          <h1>Сагс ({totalItems})</h1>
         </div>
+
         <BasketProductDetail />
-        <Button className="bg-blue-700 rounded-full place-self-endr">
+
+        <Button
+          className="bg-blue-700 rounded-full place-self-endr"
+          onClick={nextStep}
+        >
           Худалдан авах
         </Button>
       </div>
